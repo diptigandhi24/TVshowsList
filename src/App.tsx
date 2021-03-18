@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useState, useEffect } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Spinner from "react-bootstrap/Spinner";
+import getShowList from "./server/api";
+import { TvShow } from "./Types/dataTypes";
+
+const ShowList = React.lazy(() => import("./components/tvShows"));
 
 function App() {
+  const [tvShows, updateList] = useState<Array<TvShow>>([]);
+  useEffect(() => {
+    getShowList().then((data) => {
+      console.log("Tvshows", data);
+      updateList(data);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense
+      fallback={<Spinner animation="border" variant="primary"></Spinner>}
+    >
+      <ShowList tvShows={tvShows} updateList={updateList} />
+    </Suspense>
   );
 }
 

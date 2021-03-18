@@ -1,0 +1,16 @@
+.ulclass {
+  list-style: none;
+  display: inline;
+  padding: 20px;
+}
+.liclass {
+  border: 2px solid red;
+  border-radius: 0px 50px 50px 0px;
+  display: inline-block;
+  margin: 20px;
+  padding: 10px;
+  color: black;
+}
+.liclass a {
+  color: black;
+}

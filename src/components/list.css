@@ -1,0 +1,74 @@
+.listWrapper li {
+  display: flex;
+  height: fit-content;
+  margin: 10px;
+  background-color: palevioletred;
+  border: 1px soild plum;
+  align-items: center;
+  padding: 5px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.listWrapper li p {
+  flex-grow: 2;
+  padding-left: 20px;
+  font-size: 15px;
+  text-align: start;
+}
+.listWrapper li img,
+button {
+  flex-grow: 0;
+}
+.listWrapper li button {
+  font-size: 12px;
+  width: fit-content;
+  height: 50px;
+}
+.listWrapper ul {
+  margin: 0px;
+  padding: 20px 30px;
+}
+.tooltipWrapper {
+  position: relative;
+}
+.listWrapper li p .tooltiptext {
+  visibility: hidden;
+  /* width: 120px; */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.listWrapper li p:hover .tooltiptext {
+  visibility: visible;
+}
+@media (max-width: 600px) {
+  .listWrapper li p {
+    flex-grow: 5;
+    flex-shrink: 3;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
+    text-align: start;
+    width: 80%;
+  }
+  .listWrapper li img {
+    flex-grow: 0;
+  }
+  .listWrapper li button {
+    flex-grow: 5;
+    display: block;
+    margin-top: 10px;
+  }
+  .listWrapper ul {
+    margin: 0px;
+    padding: 5px;
+  }
+}
