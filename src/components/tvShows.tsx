@@ -5,11 +5,13 @@ import { TvShow } from "../Types/dataTypes";
 import NavBar from "./navigation";
 interface ShowsProps {
   tvShows: Array<TvShow>;
-  updateList: (tvshows: Array<TvShow>) => void;
+  toggleFavourites: (id: number) => void;
+  favourites: Set<number>;
 }
 export default function ShowList({
   tvShows,
-  updateList,
+  toggleFavourites,
+  favourites,
 }: ShowsProps): JSX.Element {
   return (
     <>
@@ -18,7 +20,6 @@ export default function ShowList({
         <ul>
           {tvShows !== null &&
             tvShows.map((tvShow: TvShow, index: number) => {
-              tvShow.buttonTest = "Add to favorite";
               return (
                 <li key={index.toString()}>
                   <img
@@ -31,8 +32,16 @@ export default function ShowList({
                     {tvShow.name}
                     <span className="tooltiptext">{tvShow.summary}</span>
                   </p>
-                  <button type="button" id={`${index}`} onClick={(event) => {}}>
-                    {tvShow.buttonTest}
+                  <button
+                    type="button"
+                    id={`${index}`}
+                    onClick={(event) => {
+                      toggleFavourites(tvShow.id);
+                    }}
+                  >
+                    {favourites.has(tvShow.id)
+                      ? "Favourite!"
+                      : "Add to favorite"}
                   </button>
                 </li>
               );

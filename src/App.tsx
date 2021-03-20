@@ -9,6 +9,20 @@ const ShowList = React.lazy(() => import("./components/tvShows"));
 
 function App() {
   const [tvShows, updateList] = useState<Array<TvShow>>([]);
+  const [favourites, updateFavourites] = useState<Set<number>>(new Set());
+
+  function toggleFavourites(id: number) {
+    updateFavourites((prevState) => {
+      let newSet = new Set(prevState);
+      if (prevState.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  }
+
   useEffect(() => {
     getShowList().then((data) => {
       console.log("Tvshows", data);
@@ -20,7 +34,11 @@ function App() {
     <Suspense
       fallback={<Spinner animation="border" variant="primary"></Spinner>}
     >
-      <ShowList tvShows={tvShows} updateList={updateList} />
+      <ShowList
+        tvShows={tvShows}
+        toggleFavourites={toggleFavourites}
+        favourites={favourites}
+      />
     </Suspense>
   );
 }
