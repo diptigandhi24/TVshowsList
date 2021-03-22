@@ -10,7 +10,7 @@ const ShowList = React.lazy(() => import("./components/tvShows"));
 function App() {
   const [tvShows, updateList] = useState<Array<TvShow>>([]);
   const [favourites, updateFavourites] = useState<Set<number>>(new Set());
-
+  console.log("Request inside an app", getShowList());
   function toggleFavourites(id: number) {
     updateFavourites((prevState) => {
       let newSet = new Set(prevState);

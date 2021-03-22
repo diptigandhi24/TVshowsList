@@ -17,7 +17,7 @@ export default function ShowList({
       <div className="listHeader">Show List</div>
       <div className="listWrapper">
         <ul>
-          {tvShows !== null &&
+          {tvShows.length !== 0 &&
             tvShows.map((tvShow: TvShow, index: number) => {
               return (
                 <li key={index.toString()}>
@@ -40,7 +40,7 @@ export default function ShowList({
                   >
                     {favourites.has(tvShow.id)
                       ? "Favourite!"
-                      : "Add to favorite"}
+                      : "Add to favourite"}
                   </button>
                 </li>
               );
