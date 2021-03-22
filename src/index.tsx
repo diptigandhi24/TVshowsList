@@ -7,16 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import FavouriteShows from "./components/favouriteShows";
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <App />
-        </Route>
-        {/* <Route exact path="/favourite">
-          <FavouriteShows />
-        </Route> */}
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

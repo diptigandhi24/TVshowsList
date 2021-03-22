@@ -1,3 +1,11 @@
+.listHeader {
+  border: 2px solid red;
+  border-radius: 0px 50px 50px 0px;
+  display: inline-block;
+  margin: 20px 40px;
+  padding: 10px;
+  color: black;
+}
 .listWrapper li {
   display: flex;
   height: fit-content;

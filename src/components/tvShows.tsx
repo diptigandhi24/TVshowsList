@@ -2,7 +2,6 @@ import React from "react";
 import "./list.css";
 import { TvShow } from "../Types/dataTypes";
 
-import NavBar from "./navigation";
 interface ShowsProps {
   tvShows: Array<TvShow>;
   toggleFavourites: (id: number) => void;
@@ -15,7 +14,7 @@ export default function ShowList({
 }: ShowsProps): JSX.Element {
   return (
     <>
-      <NavBar />
+      <div className="listHeader">Show List</div>
       <div className="listWrapper">
         <ul>
           {tvShows !== null &&
