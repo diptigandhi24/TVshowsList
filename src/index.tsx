@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import FavouriteShows from "./components/favouriteShows";
+// import FavouriteShows from "./components/favouriteShows";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -12,9 +12,9 @@ ReactDOM.render(
         <Route exact path="/">
           <App />
         </Route>
-        <Route exact path="/favourite">
+        {/* <Route exact path="/favourite">
           <FavouriteShows />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
   </React.StrictMode>,

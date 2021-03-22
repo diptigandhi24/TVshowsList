@@ -8,9 +8,9 @@ export default function NavBar() {
         <li className="liclass">
           <Link to="/">TVShows</Link>
         </li>
-        <li className="liclass">
+        {/* <li className="liclass">
           <Link to="/favourite">Favourite shows</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./list.css";
 import { TvShow } from "../Types/dataTypes";
 
