@@ -37,6 +37,7 @@ export default function ShowList({
                     onClick={(event) => {
                       toggleFavourites(tvShow.id);
                     }}
+                    data-testid={`${index}`}
                   >
                     {favourites.has(tvShow.id)
                       ? "Favourite!"
